@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Simulation.dir/src/main.cpp.o -o Simulation  -lsfml-graphics -lsfml-audio -lsfml-system -lsfml-window 
