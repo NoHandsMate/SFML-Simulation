@@ -1,13 +1,15 @@
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.18)
+project(SFML-Simulation)
 
-project(Simulation)
+add_library(Engine
+	include/Engine.hpp
+	src/Engine.cpp
+	)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-set(SFML_STATIC_LIBRARIES True)
-find_package(SFML COMPONENTS graphics audio system window)
+set(SFML_STATIC_LIBRARIES TRUE)
+find_package(SFML 2.5 COMPONENTS graphics system window)
 
-
+target_include_directories(Engine PUBLIC include)
+target_compile_features(Engine PRIVATE cxx_std_20)
 add_executable(Simulation src/main.cpp)
-target_link_libraries(Simulation sfml-graphics sfml-audio sfml-system sfml-window)
-
+target_link_libraries(Simulation PRIVATE Engine PUBLIC sfml-graphics sfml-system sfml-window)

@@ -98,6 +98,7 @@ Simulation_EXTERNAL_OBJECTS =
 
 Simulation: CMakeFiles/Simulation.dir/src/main.cpp.o
 Simulation: CMakeFiles/Simulation.dir/build.make
+Simulation: libEngine.a
 Simulation: CMakeFiles/Simulation.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lorenzo/Programming/SFML-Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Simulation"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Simulation.dir/link.txt --verbose=$(VERBOSE)

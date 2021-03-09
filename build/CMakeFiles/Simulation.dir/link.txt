@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/Simulation.dir/src/main.cpp.o -o Simulation  -lsfml-graphics -lsfml-audio -lsfml-system -lsfml-window 
+/usr/bin/c++ CMakeFiles/Simulation.dir/src/main.cpp.o -o Simulation  libEngine.a -lsfml-graphics -lsfml-system -lsfml-window 
