@@ -11,8 +11,16 @@ SFML/Graphics.hpp
 -
 string
 -
+vector
+-
+type_traits
+-
+concepts
+-
 
 /home/lorenzo/Programming/SFML-Simulation/src/Engine.cpp
 ../include/Engine.hpp
 /home/lorenzo/Programming/SFML-Simulation/include/Engine.hpp
+random
+-
 

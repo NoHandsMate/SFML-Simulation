@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/lorenzo/Programming/SFML-Simulation/include
 
-CXX_FLAGS = -std=gnu++2a
+CXX_FLAGS = -Wall -std=gnu++2a
 

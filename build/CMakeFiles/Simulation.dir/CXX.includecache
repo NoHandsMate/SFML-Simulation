@@ -11,6 +11,12 @@ SFML/Graphics.hpp
 -
 string
 -
+vector
+-
+type_traits
+-
+concepts
+-
 
 /home/lorenzo/Programming/SFML-Simulation/src/main.cpp
 ../include/Engine.hpp
