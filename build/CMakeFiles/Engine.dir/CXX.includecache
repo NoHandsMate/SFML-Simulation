@@ -18,9 +18,15 @@ type_traits
 concepts
 -
 
+/home/lorenzo/Programming/SFML-Simulation/include/Shapes.hpp
+SFML/Graphics.hpp
+-
+
 /home/lorenzo/Programming/SFML-Simulation/src/Engine.cpp
 ../include/Engine.hpp
 /home/lorenzo/Programming/SFML-Simulation/include/Engine.hpp
+../include/Shapes.hpp
+/home/lorenzo/Programming/SFML-Simulation/include/Shapes.hpp
 random
 -
 iostream
