@@ -1,52 +1,53 @@
 #include "../include/Engine.hpp"
 
 #include <random>
+#include <iostream>
 
-template<Arithmetic T, Arithmetic U>
-[[nodiscard]] T Engine::genRandomNumber(const U min, const U max) const {
-	
-	std::random_device seed;
-	std::mt19937 generator(seed());
-	
-	if(std::is_integral_v<T>) {
+template<typename T, typename U>
+T Engine::genRandomNumber(U min, U max) {
 
-		std::uniform_int_distribution<> distrib(min, max);
-		return distrib(generator);
-		
+	std::random_device rd;
+	std::mt19937 gen(rd());
+
+	std::uniform_int_distribution<> distrib(min, max);
+	
+	if constexpr (std::is_same_v<T,U>) {
+		T result = distrib(gen);
+		return result;
 	} else {
 
-		std::uniform_int_distribution<> distrib(min, max);
-
-		return static_cast<T>(distrib(generator));
+		T result = static_cast<T>(distrib(gen));
+		return result;
 	}
 }
 
-
+ 
 void Engine::MainLoop() {
+	
 
 	sf::RenderWindow window(sf::VideoMode(W_WIDTH, W_HEIGHT), "Simulation");
 	
 	std::vector<sf::RectangleShape> shapes;
-
-	[&]() {
-
-		for(int i = 0; i < 5; i++) {
+	
+	[&](){
+		
+		for(int i = 0; i < 10; ++i) {
 			
-			auto rect_width = genRandomNumber<float>(20, 101);
-			auto rect_height = genRandomNumber<float>(20, 101);
-
+			auto rect_width = genRandomNumber<float>(20, 80);
+			auto rect_height = genRandomNumber<float>(20, 80);
+			
 			sf::RectangleShape rect(sf::Vector2f(rect_width, rect_height));
+		
+			auto posX = genRandomNumber<float>(20, static_cast<int>(W_WIDTH - rect_width));
+			auto posY = genRandomNumber<float>(10, static_cast<int>(W_HEIGHT - rect_height));
+
+			rect.setPosition(sf::Vector2f(posX, posY));
 
 			auto red = genRandomNumber<int>(0, 255);
 			auto green = genRandomNumber<int>(0, 255);
 			auto blue = genRandomNumber<int>(0, 255);
 
 			rect.setFillColor(sf::Color(red, green, blue));
-
-			auto posX = genRandomNumber<float>(W_WIDTH - 100, W_HEIGHT - 100);
-			auto posY = genRandomNumber<float>(W_WIDTH - 100, W_HEIGHT - 100);
-
-			rect.setPosition(sf::Vector2f(posX, posY));
 
 			shapes.push_back(rect);
 		}
@@ -65,8 +66,8 @@ void Engine::MainLoop() {
 
 		window.clear();
 		
-		//for(auto& elem : Shapes)
-		//	window.draw(elem);
+		for(auto& elem : shapes)
+			window.draw(elem);
 		
 		window.display();
 	}

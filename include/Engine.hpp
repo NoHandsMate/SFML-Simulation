@@ -7,8 +7,6 @@
 #include <concepts>
 
 
-template<typename U>
-	concept Arithmetic = std::is_arithmetic_v<U>;
 
 
 class Engine {
@@ -21,8 +19,6 @@ class Engine {
 		
 		void MainLoop();
 		
-		template<Arithmetic T, Arithmetic U>
-		[[nodiscard]] T genRandomNumber(const U min, const U max) const; 
+		template<typename T, typename U>
+		T genRandomNumber(U min, U max);
 };
-
-
